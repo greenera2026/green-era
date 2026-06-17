@@ -1,3 +1,4 @@
+import ComingSoon from "./components/ComingSoon";
 import ContactSection from "./components/ContactSection";
 import FAQSection from "./components/FAQSection";
 import FeaturedProducts from "./components/FeaturedProducts";
@@ -32,6 +33,8 @@ const App = () => {
         <ContactSection />
       </div>
       <Footer />
+
+      {/* <ComingSoon /> */}
     </>
   )
 }

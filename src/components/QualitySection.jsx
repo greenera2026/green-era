@@ -38,26 +38,17 @@ const QualitySection = () => {
 
                 <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-20">
 
-                    {/* LEFT SIDE - IMAGE PLACEHOLDER */}
+                    {/* LEFT SIDE - IMAGE */}
                     <div className="w-full lg:w-1/2 relative group">
                         {/* Decorative Background Element */}
                         <div className="absolute -inset-4 bg-[#e8e3dc] rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500" />
 
-                        {/* Main Image Container */}
-                        {/* Replace the bg color with your actual image: <img src="..." className="w-full aspect-[4/5] object-cover rounded-2xl relative z-10" /> */}
-                        <div className="relative z-10 w-full aspect-[4/5] bg-white rounded-2xl overflow-hidden border border-[#ece7df] shadow-lg flex items-center justify-center">
-                            <div className="text-center p-8">
-                                <div className="w-20 h-20 mx-auto border border-[#d2c7b9] rounded-full flex items-center justify-center mb-4 text-[#a68a6d]">
-                                    <Sparkles size={32} strokeWidth={1} />
-                                </div>
-                                <p className="font-serif text-[24px] text-[#2c2825] opacity-50">
-                                    Quality Image
-                                </p>
-                                <p className="text-[#8c857d] text-[13px] mt-2">
-                                    (Lifestyle product shot)
-                                </p>
-                            </div>
-                        </div>
+                        {/* Main Image */}
+                        <img
+                            src="/stack.png"
+                            alt="Stacked premium GreenEra products"
+                            className="relative z-10 w-full aspect-[4/5] object-cover rounded-2xl shadow-lg border border-[#ece7df]"
+                        />
 
                         {/* Floating Satisfaction Badge */}
                         <div className="absolute -bottom-6 -right-6 md:bottom-8 md:-right-8 z-20 bg-white p-4 rounded-2xl shadow-xl border border-[#ece7df] flex items-center gap-4 animate-bounce-slow">
