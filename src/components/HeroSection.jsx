@@ -45,10 +45,10 @@ const HeroSection = () => {
 
 
   return (
-    <section id="home" className="relative w-full h-screen flex flex-col overflow-hidden">
+    <section id="home" className="relative w-full flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
 
       {/* MAIN HERO AREA */}
-      <div className="relative flex-1 flex items-center justify-center w-full">
+      <div className="relative flex-1 flex items-center justify-center w-full min-h-[70vh] md:min-h-0">
 
         {/* BACKGROUND IMAGES — crossfade layer */}
         {slides.map((slide, i) => (
@@ -74,7 +74,7 @@ const HeroSection = () => {
           </p>
 
           {/* MAIN HEADING */}
-          <h1 className="font-serif text-[42px] sm:text-[56px] md:text-[72px] leading-[1.1] font-normal mb-10 max-w-3xl">
+          <h1 className="font-serif text-[32px] sm:text-[56px] md:text-[72px] leading-[1.1] font-normal mb-8 sm:mb-10 max-w-3xl">
             Eco-Friendly Disposables,{"\n"}Built to Perform
           </h1>
 
@@ -114,7 +114,7 @@ const HeroSection = () => {
         </button>
 
         {/* DOT INDICATORS */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div className="absolute bottom-16 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {slides.map((_, i) => (
             <button
               key={i}
