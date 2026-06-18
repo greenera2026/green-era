@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ComingSoon from "./components/ComingSoon";
 import ContactSection from "./components/ContactSection";
 import FAQSection from "./components/FAQSection";
@@ -15,6 +16,8 @@ import WholesaleSection from "./components/WholesaleSection";
 import WhyChooseUs from "./components/WhyChooseUs";
 
 const App = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
     <>
       <Navbar />
@@ -22,8 +25,8 @@ const App = () => {
         <HeroSection />
         <WhyChooseUs />
         <OurProcess />
-        <ProductCategories />
-        <FeaturedProducts />
+        <ProductCategories onCategorySelect={setSelectedCategory} />
+        <FeaturedProducts selectedCategory={selectedCategory} onCategoryConsumed={() => setSelectedCategory(null)} />
         <SustainabilityBanner />
         <IndustriesWeServe />
         <QualitySection />

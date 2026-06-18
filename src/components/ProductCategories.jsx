@@ -8,7 +8,26 @@ import {
     ArrowRight
 } from "lucide-react";
 
-const ProductCategories = () => {
+const ProductCategories = ({ onCategorySelect }) => {
+    const categoryMapping = {
+        "Round Plates": "Round Plates",
+        "Square Plates": "Square Plates",
+        "Compartment Plates": "Compartment Plates",
+        "Bowls": "Bowls",
+        "Clamshell Containers": "Clamshell Containers",
+    };
+
+    const handleExploreClick = (categoryTitle) => {
+        const mappedCategory = categoryMapping[categoryTitle] || categoryTitle;
+        if (onCategorySelect) {
+            onCategorySelect(mappedCategory);
+        }
+        const catalogSection = document.getElementById("catalog");
+        if (catalogSection) {
+            catalogSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     const categories = [
         {
             title: "Round Plates",
@@ -51,12 +70,6 @@ const ProductCategories = () => {
                             Our Product Categories
                         </h2>
                     </div>
-
-                    {/* Optional Section CTA */}
-                    <button className="text-[14px] md:text-[15px] font-medium text-[#2e5b47] hover:text-[#1e3c2f] transition flex items-center gap-2 group pb-1 border-b border-[#2e5b47]/30 hover:border-[#2e5b47]">
-                        View Full Catalog
-                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
                 </div>
 
                 {/* CATEGORIES GRID */}
@@ -64,6 +77,7 @@ const ProductCategories = () => {
                     {categories.map((category, index) => (
                         <div
                             key={index}
+                            onClick={() => handleExploreClick(category.title)}
                             className="bg-white border border-[#ece7df] p-8 md:p-10 rounded-2xl flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
                         >
                             {/* Icon */}
