@@ -1,35 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Leaf, ChevronDown, Download } from "lucide-react";
+import products from "../data/products.json";
 
 const FeaturedProducts = ({ selectedCategory, onCategoryConsumed }) => {
-    const products = [
-        { "id": "b-dona", "category": "Bowls", "name": "Dona Square Bowl", "image": "/b-dona.jpg" },
-        { "id": "b-exim", "category": "Bowls", "name": "Exim Bowl", "image": "/b-exim.jpg" },
-        { "id": "b-large", "category": "Bowls", "name": "Large Bowl", "image": "/b-large.jpg" },
-        { "id": "b-medium", "category": "Bowls", "name": "Medium Bowl", "image": "/b-medium.jpg" },
-        { "id": "b-smart", "category": "Bowls", "name": "Smart Bowl", "image": "/b-smart.jpg" },
-        { "id": "cp-3sq", "category": "Compartment Plates", "name": "3CP Square Compartment", "image": "/cp-3sq.jpg" },
-        { "id": "cp-4", "category": "Compartment Plates", "name": "4CP Meal Tray", "image": "/cp-4.jpg" },
-        { "id": "cp-5", "category": "Compartment Plates", "name": "5CP Meal Tray", "image": "/cp-5.jpg" },
-        { "id": "cp-6", "category": "Compartment Plates", "name": "6CP Meal Tray", "image": "/cp-6.jpg" },
-        { "id": "cp-9r-3", "category": "Compartment Plates", "name": "9 Inch 3CP Round Plate", "image": "/cp-9r-3.jpg" },
-        { "id": "cp-9r-9", "category": "Compartment Plates", "name": "9CP Round Plate", "image": "/cp-9r-9.jpg" },
-        { "id": "cp-10r-3", "category": "Compartment Plates", "name": "10 Inch 3CP Round Plate", "image": "/cp-10r-3.jpg" },
-        { "id": "cp-11r-4", "category": "Compartment Plates", "name": "11 Inch 4CP Round Plate", "image": "/cp-11r-4.jpg" },
-        { "id": "cp-12r-4", "category": "Compartment Plates", "name": "12 Inch 4CP Round Plate", "image": "/cp-12r-4.jpg" },
-        { "id": "cs-6x6", "category": "Clamshell Containers", "name": "6x6 Inch Clamshell", "image": "/cs-6x6.jpg" },
-        { "id": "cs-9x6", "category": "Clamshell Containers", "name": "9x6 Inch Clamshell", "image": "/cs-9x6.jpg" },
-        { "id": "cs-9x9", "category": "Clamshell Containers", "name": "9x9 Inch Clamshell", "image": "/cs-9x9.jpg" },
-        { "id": "cs-9x9-3cp", "category": "Clamshell Containers", "name": "9x9 Inch 3CP Clamshell", "image": "/cs-9x9-3cp.jpg" },
-        { "id": "rp-6", "category": "Round Plates", "name": "Round Plate 6 Inch", "image": "/rp-6.jpg" },
-        { "id": "rp-7", "category": "Round Plates", "name": "Round Plate 7 Inch", "image": "/rp-7.jpg" },
-        { "id": "rp-9", "category": "Round Plates", "name": "Round Plate 9 Inch", "image": "/rp-9.jpg" },
-        { "id": "rp-10", "category": "Round Plates", "name": "Round Plate 10 Inch", "image": "/rp-10.jpg" },
-        { "id": "rp-11", "category": "Round Plates", "name": "Round Plate 11 Inch", "image": "/rp-11.jpg" },
-        { "id": "rp-12", "category": "Round Plates", "name": "Round Plate 12 Inch", "image": "/rp-12.jpg" },
-        { "id": "sp-1d", "category": "Square Plates", "name": "Square Plate 1D Tray", "image": "/sp-1d.jpg" },
-        { "id": "sp-2cp", "category": "Square Plates", "name": "Square Plate 2CP Tray", "image": "/sp-2cp.jpg" }
-    ];
 
     // States for Tabs and Load More
     const [activeCategory, setActiveCategory] = useState("All");
@@ -112,38 +86,40 @@ const FeaturedProducts = ({ selectedCategory, onCategoryConsumed }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                     {/* Render the filtered list up to the visibleCount limit */}
                     {filteredProducts.slice(0, visibleCount).map((product, index) => (
-                        <div
+                        <Link
                             key={product.id || index}
+                            to={`/category/${product.slug}#${product.id}`}
                             className="group cursor-pointer flex flex-col bg-white border border-[#ece7df] rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                         >
                             {/* IMAGE CONTAINER */}
-                            <div className="relative w-full aspect-square bg-white overflow-hidden">
+                            <div className="relative w-full aspect-square bg-white overflow-hidden flex items-center justify-center p-6">
                                 <img
                                     src={product.image}
                                     alt={product.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 z-10 pointer-events-none" />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-colors duration-300 z-10 pointer-events-none" />
                             </div>
-
+ 
                             {/* CARD FOOTER */}
-                            <div className="flex flex-col p-6 border-t border-[#ece7df]/50">
+                            <div className="flex flex-col p-6 border-t border-[#ece7df]/50 bg-white">
                                 <div className="flex items-center gap-2 mb-3">
                                     <Leaf size={14} className="text-[#2e5b47]" />
                                     <p className="text-[11px] md:text-[12px] text-[#2e5b47] font-semibold tracking-[1px] uppercase">
                                         100% Compostable
                                     </p>
                                 </div>
-
-                                <div className="flex items-end justify-between gap-4">
-                                    <div>
-                                        <h3 className="text-[#2c2825] font-serif text-[20px] md:text-[22px] group-hover:text-[#2e5b47] transition-colors duration-300 leading-tight">
-                                            {product.name}
-                                        </h3>
+ 
+                                <div className="flex items-center justify-between gap-4">
+                                    <h3 className="text-[#2c2825] font-serif text-[20px] md:text-[22px] group-hover:text-[#2e5b47] transition-colors duration-300 leading-tight">
+                                        {product.name}
+                                    </h3>
+                                    <div className="w-10 h-10 rounded-full border border-[#ece7df] flex items-center justify-center text-[#6b655e] group-hover:bg-[#2e5b47] group-hover:text-white group-hover:border-[#2e5b47] transition-all duration-300 shrink-0">
+                                        <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform duration-300" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
     Circle,
     Square,
@@ -8,24 +9,20 @@ import {
     ArrowRight
 } from "lucide-react";
 
-const ProductCategories = ({ onCategorySelect }) => {
-    const categoryMapping = {
-        "Round Plates": "Round Plates",
-        "Square Plates": "Square Plates",
-        "Compartment Plates": "Compartment Plates",
-        "Bowls": "Bowls",
-        "Clamshell Containers": "Clamshell Containers",
+const ProductCategories = () => {
+    const navigate = useNavigate();
+
+    const categorySlugs = {
+        "Round Plates": "round-plates",
+        "Square Plates": "square-plates",
+        "Compartment Plates": "compartment-plates",
+        "Bowls": "bowls",
+        "Clamshell Containers": "clamshell-containers",
     };
 
     const handleExploreClick = (categoryTitle) => {
-        const mappedCategory = categoryMapping[categoryTitle] || categoryTitle;
-        if (onCategorySelect) {
-            onCategorySelect(mappedCategory);
-        }
-        const catalogSection = document.getElementById("catalog");
-        if (catalogSection) {
-            catalogSection.scrollIntoView({ behavior: "smooth" });
-        }
+        const slug = categorySlugs[categoryTitle] || categoryTitle.toLowerCase().replace(/\s+/g, "-");
+        navigate(`/category/${slug}`);
     };
 
     const categories = [
@@ -57,7 +54,7 @@ const ProductCategories = ({ onCategorySelect }) => {
     ];
 
     return (
-        <section id="products" className="w-full bg-[#fcfbf9] py-20 md:py-28 border-t border-[#ece7df]">
+        <section id="products" className="w-full bg-[#fcfbf9] py-20 border-t border-[#ece7df]">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* SECTION HEADER */}

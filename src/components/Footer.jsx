@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 // Lucide doesn't include brand icons, so we use standard SVG paths for them
@@ -17,13 +18,13 @@ const LinkedinIcon = ({ size }) => (
 
 const Footer = () => {
     const links = [
-        { name: "Home", href: "#home" },
-        { name: "About Us", href: "#about" },
-        { name: "Products", href: "#products" },
-        { name: "Sustainability", href: "#sustainability" },
-        { name: "Industries", href: "#industries" },
-        { name: "Bulk Orders", href: "#wholesale" },
-        { name: "Contact Us", href: "#contact" }
+        { name: "Home", href: "/" },
+        { name: "About Us", href: "/#about" },
+        { name: "Products", to: "/products" },
+        { name: "Sustainability", href: "/#sustainability" },
+        { name: "Industries", href: "/#industries" },
+        { name: "Bulk Orders", href: "/#wholesale" },
+        { name: "Contact Us", href: "/#contact" }
     ];
 
     return (
@@ -73,12 +74,21 @@ const Footer = () => {
                         <ul className="flex flex-col gap-3">
                             {links.map((link, index) => (
                                 <li key={index}>
-                                    <a
-                                        href={link.href}
-                                        className="text-[#a8a39d] text-[15px] hover:text-white transition-colors duration-300"
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.to ? (
+                                        <Link
+                                            to={link.to}
+                                            className="text-[#a8a39d] text-[15px] hover:text-white transition-colors duration-300"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <a
+                                            href={link.href}
+                                            className="text-[#a8a39d] text-[15px] hover:text-white transition-colors duration-300"
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                         </ul>

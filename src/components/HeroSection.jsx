@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, ArrowLeft, Circle, FlaskConical, Coffee, Soup } from "lucide-react";
 
 const slides = [
@@ -81,12 +82,12 @@ const HeroSection = () => {
           {/* CTA BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-4">
             {/* PRIMARY BUTTON */}
-            <a
-              href="#products"
+            <Link
+              to="/products"
               className="bg-white hover:bg-gray-100 transition-colors duration-300 text-black px-8 py-3.5 text-[13px] font-semibold tracking-wider uppercase text-center inline-block"
             >
               Explore Products
-            </a>
+            </Link>
 
             {/* SECONDARY BUTTON */}
             <a
