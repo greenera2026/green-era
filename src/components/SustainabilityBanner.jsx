@@ -16,7 +16,7 @@ const SustainabilityBanner = () => {
             icon: <Sprout size={36} strokeWidth={1.5} />,
         },
         {
-            text: "Sustainable Packaging Solutions",
+            text: "Sustainable Tableware Solutions",
             icon: <PackageCheck size={36} strokeWidth={1.5} />,
         },
     ];
@@ -34,7 +34,7 @@ const SustainabilityBanner = () => {
                 {/* TEXT CONTENT */}
                 <div className="max-w-4xl mx-auto mb-20">
                     <h2 className="font-serif text-[42px] sm:text-[52px] md:text-[64px] text-[#fcfbf9] leading-[1.1] mb-6">
-                        Better Packaging For A Better Future
+                        Better Tableware For A Better Future
                     </h2>
                     <p className="text-[17px] md:text-[20px] text-[#d2c7b9] leading-relaxed max-w-2xl mx-auto font-light">
                         Every GreenEra product helps reduce plastic waste and promotes a cleaner, healthier planet through sustainable alternatives.

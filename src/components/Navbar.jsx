@@ -28,7 +28,6 @@ const Navbar = () => {
                     <div className="hidden lg:flex items-center justify-between text-[12px] xl:text-[13px] tracking-wide text-[#6f6a63] font-medium w-full">
                         <p className="whitespace-nowrap">100% Biodegradable & Compostable Tableware</p>
                         <p className="whitespace-nowrap">Sustainable Solutions For Food Businesses</p>
-                        <p className="whitespace-nowrap">Bulk Orders Available Across India</p>
                     </div>
 
                     {/* Mobile Text */}

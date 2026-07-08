@@ -3,17 +3,8 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 // Lucide doesn't include brand icons, so we use standard SVG paths for them
-const FacebookIcon = ({ size }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-);
-const TwitterIcon = ({ size }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-);
 const InstagramIcon = ({ size }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-);
-const LinkedinIcon = ({ size }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
 );
 
 const Footer = () => {
@@ -38,13 +29,13 @@ const Footer = () => {
                     <div className="md:col-span-12 lg:col-span-5 flex flex-col">
 
                         {/* Logo */}
-                        <div className="flex items-center mb-6 cursor-pointer w-fit">
+                        <Link to="/" className="flex items-center mb-6 cursor-pointer w-fit transition-transform hover:scale-105">
                             <img
-                                src="/green-era-logo.svg"
+                                src="/green-era-logo-white.svg"
                                 alt="GreenEra Logo"
                                 className="h-12 w-auto object-contain"
                             />
-                        </div>
+                        </Link>
 
                         {/* About Text */}
                         <p className="text-[#a8a39d] text-[15px] leading-relaxed max-w-sm">
@@ -54,15 +45,15 @@ const Footer = () => {
 
                         {/* Social Icons */}
                         <div className="flex gap-4 mt-8">
-                            {[FacebookIcon, TwitterIcon, InstagramIcon, LinkedinIcon].map((Icon, idx) => (
-                                <a
-                                    key={idx}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#a8a39d] hover:bg-[#2e5b47] hover:text-white hover:border-[#2e5b47] transition-all duration-300"
-                                >
-                                    <Icon size={18} />
-                                </a>
-                            ))}
+                            <a
+                                href="https://www.instagram.com/greenera_disposables?igsh=bXlqZGJjMDFveW5s"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#a8a39d] hover:bg-[#2e5b47] hover:text-white hover:border-[#2e5b47] transition-all duration-300"
+                                title="Instagram"
+                            >
+                                <InstagramIcon size={18} />
+                            </a>
                         </div>
                     </div>
 

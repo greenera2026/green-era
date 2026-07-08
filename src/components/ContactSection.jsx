@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapPin, Phone, Mail, Send, Globe } from "lucide-react";
 
 const ContactSection = () => {
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!name.trim()) {
+            alert("Please enter your name.");
+            return;
+        }
+        if (!email.trim()) {
+            alert("Please enter your email address.");
+            return;
+        }
+
+        const text = `📩 *New Inquiry Received*
+👤 *Name:* ${name.trim()}
+📞 *Phone:* ${phone.trim()}
+✉️ *Email:* ${email.trim()}
+💬 *Message:* ${message.trim()}`;
+
+        const encodedText = encodeURIComponent(text);
+        const whatsappUrl = `https://wa.me/919313274748?text=${encodedText}`;
+
+        window.open(whatsappUrl, '_blank');
+    };
+
     const contactDetails = [
         {
             icon: <MapPin size={22} strokeWidth={1.5} />,
@@ -111,7 +140,7 @@ const ContactSection = () => {
                             Send an Inquiry
                         </h3>
 
-                        <form className="flex flex-col gap-5">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                             {/* Grid for Name & Phone */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div className="flex flex-col gap-2">
@@ -119,6 +148,8 @@ const ContactSection = () => {
                                     <input
                                         type="text"
                                         id="name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                         placeholder="John Doe"
                                         className="w-full bg-[#f8f5f0] border border-transparent focus:border-[#2e5b47] focus:bg-white rounded-xl px-5 py-3.5 text-[15px] text-[#2c2825] outline-none transition-all duration-300 placeholder:text-[#a8a39d]"
                                     />
@@ -128,6 +159,8 @@ const ContactSection = () => {
                                     <input
                                         type="tel"
                                         id="phone"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
                                         placeholder="+91"
                                         className="w-full bg-[#f8f5f0] border border-transparent focus:border-[#2e5b47] focus:bg-white rounded-xl px-5 py-3.5 text-[15px] text-[#2c2825] outline-none transition-all duration-300 placeholder:text-[#a8a39d]"
                                     />
@@ -140,6 +173,8 @@ const ContactSection = () => {
                                 <input
                                     type="email"
                                     id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder="john@example.com"
                                     className="w-full bg-[#f8f5f0] border border-transparent focus:border-[#2e5b47] focus:bg-white rounded-xl px-5 py-3.5 text-[15px] text-[#2c2825] outline-none transition-all duration-300 placeholder:text-[#a8a39d]"
                                 />
@@ -151,6 +186,8 @@ const ContactSection = () => {
                                 <textarea
                                     id="message"
                                     rows="4"
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
                                     placeholder="Tell us about your requirements..."
                                     className="w-full bg-[#f8f5f0] border border-transparent focus:border-[#2e5b47] focus:bg-white rounded-xl px-5 py-3.5 text-[15px] text-[#2c2825] outline-none transition-all duration-300 placeholder:text-[#a8a39d] resize-none"
                                 ></textarea>
@@ -158,7 +195,7 @@ const ContactSection = () => {
 
                             {/* Submit Button */}
                             <button
-                                type="button"
+                                type="submit"
                                 className="mt-4 w-full bg-[#2e5b47] hover:bg-[#244636] text-white py-4 rounded-xl text-[15px] font-medium transition-all duration-300 flex items-center justify-center gap-2 group shadow-md hover:shadow-lg"
                             >
                                 Submit Inquiry

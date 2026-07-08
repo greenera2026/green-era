@@ -34,13 +34,13 @@ const ComingSoon = () => {
 
             {/* GREEN ERA LOGO & HEADER */}
             <header className="relative z-40 w-full max-w-xl mx-auto flex flex-col items-center gap-3">
-                <div className="p-3 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg">
+                <a href="/" className="p-3 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg cursor-pointer transition-transform hover:scale-105">
                     <img
                         src="/green-era-logo.svg"
                         alt="GreenEra Logo"
                         className="h-12 sm:h-14 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
                     />
-                </div>
+                </a>
             </header>
 
             {/* 3D COMING SOON HEADING SECTION */}

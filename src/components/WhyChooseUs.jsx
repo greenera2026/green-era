@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
                 {/* SECTION HEADER */}
                 <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
                     <h2 className="font-serif text-[36px] md:text-[46px] text-[#2c2825] leading-tight mb-6">
-                        Why Choose GreenEra
+                        Why Choose GreenEra ?
                     </h2>
                     <p className="text-[16px] md:text-[17px] text-[#6b655e] leading-relaxed">
                         At GreenEra, we believe convenience should never come at the cost of the environment.

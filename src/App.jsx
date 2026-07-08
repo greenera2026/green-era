@@ -14,6 +14,8 @@ const ScrollToHash = () => {
           el.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [hash, pathname]);
 
