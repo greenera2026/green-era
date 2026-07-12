@@ -4,10 +4,11 @@ import { ArrowRight, ArrowLeft, Circle, FlaskConical, Coffee, Soup } from "lucid
 
 const slides = [
   { image: "/carousel/hero-1.png" },
-  { image: "/carousel/image.png" },
+  { image: "/carousel/Hero4.webp" },
   { image: "/carousel/image copy.png" },
   { image: "/carousel/image copy 2.png" },
   { image: "/carousel/image copy 3.png" },
+
 ];
 
 const AUTOPLAY_INTERVAL = 3000;

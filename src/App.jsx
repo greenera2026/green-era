@@ -25,6 +25,7 @@ import ContactSection from "./components/ContactSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
+import MarqueeBanner from "./components/MarqueeBanner";
 import IndustriesWeServe from "./components/IndustriesWeServe";
 import Navbar from "./components/Navbar"
 import OurProcess from "./components/OurProcess";
@@ -41,6 +42,7 @@ import FloatingButtons from "./components/FloatingButtons";
 const HomePage = () => (
   <>
     <HeroSection />
+    <MarqueeBanner />
     <WhyChooseUs />
     <OurProcess />
     <ProductCategories />

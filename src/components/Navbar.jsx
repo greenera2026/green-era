@@ -24,7 +24,7 @@ const Navbar = () => {
         <header className="fixed top-0 left-0 w-full border-b border-[#e9e4de] bg-white z-50 shadow-sm">
             {/* TOP ANNOUNCEMENT BAR */}
             <div className="w-full bg-[#f7f4ef] border-b border-[#ece7df]">
-                <div className="max-w-7xl mx-auto px-4 lg:px-6 py-2">
+                <div className="w-full px-4 lg:px-6 py-2">
                     <div className="hidden lg:flex items-center justify-between text-[12px] xl:text-[13px] tracking-wide text-[#6f6a63] font-medium w-full">
                         <p className="whitespace-nowrap">100% Biodegradable & Compostable Tableware</p>
                         <p className="whitespace-nowrap">Sustainable Solutions For Food Businesses</p>
